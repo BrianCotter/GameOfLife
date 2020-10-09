@@ -1,8 +1,8 @@
 /*
 Grid class that creates Grid structure for GoL World
-
 Has Draw method that gets called 20x a sec to update screen
 
+Rules for the Game of Life: 
 1. Survivals. Every counter with two or three neighboring counters survives for the next generation.
 2. Deaths. Each counter with four or more neighbors dies (is removed) from overpopulation. Every counter with
    one neighbor or none dies from isolation.
@@ -16,27 +16,21 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.Random;
 
-//TODO What does BouncingBox.java import ???
-
 public class Grid {
 
-	// TODO: match these to real width and height 
-    public static final int SCALE = 10;
     public static final int WIDTH = 50;
     public static final int HEIGHT = 50;
     public static final int PROB = 30;
     Random rand = new Random();
-	
-    private Graphics2D g2D; // TODO should this be private in BouncingBox ??
-
+    private Graphics2D g2D;
     private int[][] grid;
     private int[][] buffer;
 	
     Grid(){
-		grid = new int[WIDTH][HEIGHT];
+	grid = new int[WIDTH][HEIGHT];
         buffer = new int[WIDTH][HEIGHT];
 		
-		//Intialize the 2D grid
+	//Intialize the 2D grid
         for(int x=1; x < WIDTH-1; x++){
             for(int y=1; y < HEIGHT-1; y++){
                 if(rand.nextInt(100) < PROB){
@@ -50,8 +44,8 @@ public class Grid {
     }
 	
 	
-	public void update(){
-       int neighbors = 0;
+    public void update(){
+        int neighbors = 0;
 
         for(int x = 1; x < WIDTH-1; x++){
             for(int y = 1; y < HEIGHT-1; y++){
@@ -84,9 +78,9 @@ public class Grid {
 	
     // Call 20x a second 
     public void draw(Graphics g){
-		g2D = (Graphics2D)g;
+	g2D = (Graphics2D)g;
 		
-		// Draw state over every cell in the grid
+	// Draw state over every cell in the grid
         for(int x = 0; x < WIDTH; x++){
             for(int y = 0; y < HEIGHT; y++){
 
@@ -105,6 +99,5 @@ public class Grid {
 
         // After drawing current state update buffer
         update();
-    }
-    
+    } 
 }
