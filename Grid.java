@@ -84,7 +84,7 @@ public class Grid {
         for(int x = 0; x < WIDTH; x++){
             for(int y = 0; y < HEIGHT; y++){
 
-                Cell cell = new Cell(x*SCALE,y*SCALE);
+                Cell cell = new Cell(x*Cell.SCALE,y*Cell.SCALE);
                 
                 if(grid[x][y] == 1){
                     g2D.setColor(Color.BLACK);
