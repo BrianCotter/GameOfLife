@@ -4,7 +4,6 @@ public class Cell {
     
     public static final int SCALE =  10;
     private Rectangle rect;
-    private State state;
 
     Cell(int x, int y){
         rect = new Rectangle(x, y, SCALE, SCALE);
